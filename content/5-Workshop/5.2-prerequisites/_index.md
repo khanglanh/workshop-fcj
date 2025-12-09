@@ -51,7 +51,7 @@ To complete this workshop, we need to prepare the following.
 aws --version
 ```
 
-![alt text](/workshop-fcj/images/5-Workshop/5.2-prerequisites/aws-version.png)
+![alt text](/images/5-Workshop/5.2-prerequisites/aws-version.png)
 
 ---
 
@@ -65,7 +65,7 @@ aws --version
 sam --version
 ```
 
-## ![alt text](/workshop-fcj/images/5-Workshop/5.2-prerequisites/sam-version.png)
+![alt text](/images/5-Workshop/5.2-prerequisites/sam-version.png)
 
 #### AWS CLI Configuration
 
@@ -77,7 +77,7 @@ aws configure
 
 Enter the Access Key and Secret Key:
 
-![alt text](/workshop-fcj/images/5-Workshop/5.2-prerequisites/aws-configure.png)
+![alt text](/images/5-Workshop/5.2-prerequisites/aws-configure.png)
 
 > **Note:** Do not expose your Access Key/Secret Key
 

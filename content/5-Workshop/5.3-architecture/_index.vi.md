@@ -10,7 +10,7 @@ pre: " <b> 5.3. </b> "
 
 Hệ thống Excel Import được thiết kế theo mô hình **Serverless Event-Driven Architecture**, tận dụng các managed services của AWS để giảm thiểu operational overhead và tối ưu chi phí.
 
-![alt text](images/5-Workshop/5.3-architecture/workshop-s3-notifications.png)
+![alt text](/images/5-Workshop/5.3-architecture/workshop-s3-notifications.png)
 
 #### Chi tiết
 
@@ -26,7 +26,7 @@ Hệ thống Excel Import được thiết kế theo mô hình **Serverless Even
 
 **Core Processing Function**
 
-![alt text](images/5-Workshop/5.3-architecture/core-function.png)
+![alt text](/images/5-Workshop/5.3-architecture/core-function.png)
 
 **Process Flow:**
 
@@ -39,4 +39,4 @@ Hệ thống Excel Import được thiết kế theo mô hình **Serverless Even
     Tables: StudentsTable, CoursesTable, ImportJobsTable
 
 **Amazon S3 (File Storage):** Storage lưu trữ các file user import.
-![alt text](images/5-Workshop/5.3-architecture/import-bucket.png)
+![alt text](/images/5-Workshop/5.3-architecture/import-bucket.png)

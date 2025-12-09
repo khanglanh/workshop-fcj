@@ -13,14 +13,14 @@ Trong phần này chúng ta kiểm tra toàn bộ luồng hoạt động: đăng
 1. Đăng ký và xác thực
 
 - Tại màn hình đăng nhập, click **Sign up**.
-  ![Đăng ký](/workshop-fcj/images/5-Workshop/5.6-test-application/login-page.png)
+  ![Đăng ký](/images/5-Workshop/5.6-test-application/login-page.png)
 - Điền thông tin và click **Sign up** để tạo tài khoản.
-  ![Form Sign up](/workshop-fcj/images/5-Workshop/5.6-test-application/sign-up.png)
+  ![Form Sign up](/images/5-Workshop/5.6-test-application/sign-up.png)
 - Nhập **Code** được gửi qua email rồi click **Verify Email**.
-  ![Nhập code](/workshop-fcj/images/5-Workshop/5.6-test-application/code.png)
-  ![Verify Email](/workshop-fcj/images/5-Workshop/5.6-test-application/verify.png)
+  ![Nhập code](/images/5-Workshop/5.6-test-application/code.png)
+  ![Verify Email](/images/5-Workshop/5.6-test-application/verify.png)
 - Sau khi verify, đăng nhập bằng **Email** và **Password** vừa tạo.
-  ![Đăng nhập](/workshop-fcj/images/5-Workshop/5.6-test-application/login.png)
+  ![Đăng nhập](/images/5-Workshop/5.6-test-application/login.png)
 
 2. Tải file mẫu
 
@@ -29,18 +29,18 @@ Trong phần này chúng ta kiểm tra toàn bộ luồng hoạt động: đăng
 3. Upload file và import
 
 - Vào chức năng upload file, chọn file mẫu vừa tải về và upload.
-  ![Upload file](/workshop-fcj/images/5-Workshop/5.6-test-application/upload-file.png)
+  ![Upload file](/images/5-Workshop/5.6-test-application/upload-file.png)
 - Sau khi upload, click **Upload & Import** để bắt đầu quá trình import.
-  ![Click Upload & Import](/workshop-fcj/images/5-Workshop/5.6-test-application/click-upload-import.png)
+  ![Click Upload & Import](/images/5-Workshop/5.6-test-application/click-upload-import.png)
 
 4. Theo dõi tiến trình
 
 - File sẽ được đưa lên S3 Bucket và kích hoạt Lambda để import dữ liệu.
-  ![Processing](/workshop-fcj/images/5-Workshop/5.6-test-application/processing.png)
+  ![Processing](/images/5-Workshop/5.6-test-application/processing.png)
 - Trạng thái import:
   - **Processing** → nếu không lỗi sẽ chuyển **Completed**.
   - **Processing** → nếu có lỗi sẽ chuyển **Failed** và hệ thống sẽ **tự động rollback**.
-    ![Completed](/workshop-fcj/images/5-Workshop/5.6-test-application/completed.png)
+    ![Completed](/images/5-Workshop/5.6-test-application/completed.png)
 
 5. Kiểm tra dữ liệu sau import
 

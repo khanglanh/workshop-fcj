@@ -20,7 +20,7 @@ There are 2 ways to deploy the application using SAM:
 aws s3 mb s3://demo-workshop-be-<YOUR-ID-ACCOUNT> --region ap-southeast-1
 ```
 
-![Create S3 bucket](/workshop-fcj/images/5-Workshop/5.4-deploy-backend/5.4.2-sam-deploy/mb-bucket.png)
+![Create S3 bucket](/images/5-Workshop/5.4-deploy-backend/5.4.2-sam-deploy/mb-bucket.png)
 
 ```powershell
 sam deploy --s3-bucket <bucket-name-just-created> --stack-name <stack-name> --region ap-southeast-1
@@ -36,7 +36,7 @@ To keep it simple and avoid creating a bucket manually, we will use **Method 2**
 
 #### SAM will ask some guided questions
 
-![alt text](/workshop-fcj/images/5-Workshop/5.4-deploy-backend/5.4.2-sam-deploy/guided-question.png)
+![alt text](/images/5-Workshop/5.4-deploy-backend/5.4.2-sam-deploy/guided-question.png)
 
 When running `sam deploy --guided`, SAM will ask for some parameters to configure (for example):
 

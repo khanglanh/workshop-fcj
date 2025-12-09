@@ -10,6 +10,10 @@ pre: " <b> 2. </b> "
 
 ## AWS Serverless Solution for Teaching Center Management Project
 
+{{% notice info %}}
+Proposal Word template: [proposal-template.docx](/files/2-Proposal/proposal-template.docx)
+{{% /notice %}}
+
 ### 1. Executive Summary
 
 The project focuses on deploying an LMS (Learning Management System) platform serving core training operations, equivalent in scope to systems like lms-hcmuni.fpt.edu.vn. Specifically, the scope includes 2 main parts: academic management and authentication/identification and authorization.
@@ -50,7 +54,7 @@ The access flow: CloudFront → S3 (static content) and API Gateway → Lambda �
 
 ### 3. Solution Architecture
 
-![Teaching center management](/workshop-fcj/images/2-Proposal/project1_architecture_diagram.jpg)
+![Teaching center management](/images/2-Proposal/project1_architecture_diagram.jpg)
 
 #### Detailed Description
 

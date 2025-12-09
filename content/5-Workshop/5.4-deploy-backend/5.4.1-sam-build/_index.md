@@ -17,7 +17,7 @@ cd excel-import-workshop
 mvn clean
 ```
 
-![alt text](/workshop-fcj/images/5-Workshop/5.4-deploy-backend/5.4.1-sam-build/mvn-clean.png)
+![alt text](/images/5-Workshop/5.4-deploy-backend/5.4.1-sam-build/mvn-clean.png)
 
 **Package application**
 

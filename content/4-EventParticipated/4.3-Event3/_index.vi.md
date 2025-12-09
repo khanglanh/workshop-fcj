@@ -193,8 +193,8 @@ pre: " <b> 4.3. </b> "
 
 ### Một số hình ảnh khi tham gia sự kiện
 
-![alt text](/workshop-fcj/images/ngay17/anh1.png)
-![alt text](/workshop-fcj/images/ngay17/anh2.png)
-![alt text](/workshop-fcj/images/ngay17/anh3.png)
+![alt text](/images/ngay17/anh1.png)
+![alt text](/images/ngay17/anh2.png)
+![alt text](/images/ngay17/anh3.png)
 
 > Tổng thể, workshop “DevOps on AWS” mang lại cho tôi cái nhìn toàn diện về DevOps hiện đại, quy trình CI/CD, IaC, container hóa và giám sát hệ thống, giúp tôi tự tin hơn khi áp dụng DevOps vào dự án thực tế.

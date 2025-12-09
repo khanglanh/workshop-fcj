@@ -17,7 +17,7 @@ cd excel-import-workshop
 mvn clean
 ```
 
-![alt text](/workshop-fcj/images/5-Workshop/5.4-deploy-backend/5.4.1-sam-build/mvn-clean.png)
+![alt text](/images/5-Workshop/5.4-deploy-backend/5.4.1-sam-build/mvn-clean.png)
 
 **Package application**
 
@@ -31,7 +31,7 @@ Quá trình này sẽ:
 2. Compile Java source code
 3. Package thành JAR file
 
-![alt text](/workshop-fcj/images/5-Workshop/5.4-deploy-backend/5.4.1-sam-build/mvn-package.png)
+![alt text](/images/5-Workshop/5.4-deploy-backend/5.4.1-sam-build/mvn-package.png)
 
 #### Build với AWS SAM
 

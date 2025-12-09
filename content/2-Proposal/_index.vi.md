@@ -10,6 +10,10 @@ pre: " <b> 2. </b> "
 
 ## Giải pháp AWS Serverless cho dự án quản lý trung tâm dạy học
 
+{{% notice info %}}
+Proposal Word template: [proposal-template.docx](/files/2-Proposal/proposal-template.docx)
+{{% /notice %}}
+
 ### 1. Tóm tắt điều hành
 
 Dự án tập trung triển khai nền tảng LMS (Learning Management System) phục vụ nghiệp vụ đào tạo cốt lõi, tương đương phạm vi sử dụng của hệ thống tương tự như lms-hcmuni.fpt.edu.vn. Cụ thể, phạm vi bao gồm 2 phần: quản lý học vụ và xác thực/định danh và phân quyền.
@@ -46,7 +50,7 @@ Luồng truy cập: CloudFront → S3 (nội dung tĩnh) và API Gateway → Lam
 
 ### 3. Kiến trúc giải pháp
 
-![Teaching center management](/workshop-fcj/images/2-Proposal/project1_architecture_diagram_vi.jpg)
+![Teaching center management](/images/2-Proposal/project1_architecture_diagram_vi.jpg)
 
 #### Mô tả chi tiết
 

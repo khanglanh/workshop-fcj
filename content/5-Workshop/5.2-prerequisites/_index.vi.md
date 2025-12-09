@@ -31,15 +31,15 @@ pre: " <b> 5.2. </b> "
 5. Tìm đến mục _Security Credentials_
 6. Chọn _Create Access Key_ để tạo một khóa truy cập mới
 
-![alt text](/workshop-fcj/images/5-Workshop/5.2-Prerequisite/create-credential.png)
+![alt text](/images/5-Workshop/5.2-prerequisites/create-credential.png)
 
 7. Chọn CLI và tick Confirmation
 
-![alt text](/workshop-fcj/images/5-Workshop/5.2-Prerequisite/create-access-key.png)
+![alt text](/images/5-Workshop/5.2-prerequisites/create-access-key.png)
 
 8. Giữ Access key và Secret key an toàn và không chia sẻ cho người khác.
 
-![alt text](/workshop-fcj/images/5-Workshop/5.2-Prerequisite/download-access-key.png)
+![alt text](/images/5-Workshop/5.2-prerequisites/download-access-key.png)
 
 **AWS CLI:**
 
@@ -51,7 +51,7 @@ pre: " <b> 5.2. </b> "
 aws --version
 ```
 
-![alt text](/workshop-fcj/images/5-Workshop/5.2-Prerequisite/aws-version.png)
+![alt text](/images/5-Workshop/5.2-prerequisites/aws-version.png)
 
 ---
 
@@ -65,7 +65,7 @@ aws --version
 sam --version
 ```
 
-## ![alt text](images/5-Workshop/5.2-Prerequisite/sam-version.png)
+![alt text](/images/5-Workshop/5.2-prerequisites/sam-version.png)
 
 #### Cấu Hình AWS CLI
 
@@ -77,7 +77,7 @@ aws configure
 
 Điền Access key và Secret key:
 
-![alt text](images/5-Workshop/5.2-Prerequisite/aws-configure.png)
+![alt text](/images/5-Workshop/5.2-prerequisites/aws-configure.png)
 
 > **Lưu ý:** Không để lộ Access Key/Secret Key
 

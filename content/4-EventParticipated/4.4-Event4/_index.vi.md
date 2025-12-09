@@ -190,8 +190,8 @@ pre: " <b> 4.4. </b> "
 
 ### Một số hình ảnh khi tham gia sự kiện
 
-![alt text](/workshop-fcj/images/ngay29/anh1.png)
-![alt text](/workshop-fcj/images/ngay29/anh2.png)
-![alt text](/workshop-fcj/images/ngay29/anh3.png)
+![alt text](/images/ngay29/anh1.png)
+![alt text](/images/ngay29/anh2.png)
+![alt text](/images/ngay29/anh3.png)
 
 > Tổng thể, workshop “AWS Well-Architected Security Pillar” mang đến góc nhìn sâu sắc về thiết kế hệ thống an toàn trên AWS, giúp tôi hình thành tư duy bảo mật chuẩn mực và có thể áp dụng ngay vào công việc.
