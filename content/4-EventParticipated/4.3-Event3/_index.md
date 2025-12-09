@@ -193,8 +193,8 @@ pre: " <b> 4.3. </b> "
 
 ### Photos from the Event
 
-![alt text](/images/ngay17/anh1.png)
-![alt text](/images/ngay17/anh2.png)
-![alt text](/images/ngay17/anh3.png)
+![alt text](/workshop-fcj/images/ngay17/anh1.png)
+![alt text](/workshop-fcj/images/ngay17/anh2.png)
+![alt text](/workshop-fcj/images/ngay17/anh3.png)
 
 > Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.

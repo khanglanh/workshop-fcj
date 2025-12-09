@@ -111,6 +111,6 @@ Attending the **AI/ML/GenAI on AWS** workshop helped me gain deeper insights int
 
 #### Some event photos
 
-![alt text](/images/ngay15/anh1.png)
-![alt text](/images/ngay15/anh2.png)
-![alt text](/images/ngay15/anh3.png)
+![alt text](/workshop-fcj/images/ngay15/anh1.png)
+![alt text](/workshop-fcj/images/ngay15/anh2.png)
+![alt text](/workshop-fcj/images/ngay15/anh3.png)

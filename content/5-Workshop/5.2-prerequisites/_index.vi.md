@@ -1,9 +1,9 @@
 ---
-title : "Các bước chuẩn bị"
-date :  "2025-09-15" 
-weight : 2
-chapter : false
-pre : " <b> 5.2. </b> "
+title: "Các bước chuẩn bị"
+date: "2025-09-15"
+weight: 2
+chapter: false
+pre: " <b> 5.2. </b> "
 ---
 
 #### Yêu Cầu Môi Trường
@@ -11,6 +11,7 @@ pre : " <b> 5.2. </b> "
 Để hoàn thành workshop này, chúng ta cần chuẩn bị.
 
 **AWS Account:**
+
 - Tài khoản AWS có thể sử dụng Free Tier
 - IAM user có quyền với các services:
   - AWS CloudFormation
@@ -22,34 +23,35 @@ pre : " <b> 5.2. </b> "
   - CloudWatch Logs
 
 **Tạo AWS Access Key (Giả sử bạn đã có IAM User)**
-1. Đăng nhập vào AWS
-2. Tìm và chọn dịch vụ *IAM*
-3. Chọn mục *Users* ở menu bên trái để xem danh sách các IAM User
-4. Tìm và chọn người dùng mà bạn đã tạo trước đó
-5. Tìm đến mục *Security Credentials*
-6. Chọn *Create Access Key* để tạo một khóa truy cập mới
 
-![alt text](/images/5-Workshop/5.2-Prerequisite/create-credential.png)
+1. Đăng nhập vào AWS
+2. Tìm và chọn dịch vụ _IAM_
+3. Chọn mục _Users_ ở menu bên trái để xem danh sách các IAM User
+4. Tìm và chọn người dùng mà bạn đã tạo trước đó
+5. Tìm đến mục _Security Credentials_
+6. Chọn _Create Access Key_ để tạo một khóa truy cập mới
+
+![alt text](/workshop-fcj/images/5-Workshop/5.2-Prerequisite/create-credential.png)
 
 7. Chọn CLI và tick Confirmation
 
-![alt text](/images/5-Workshop/5.2-Prerequisite/create-access-key.png)
+![alt text](/workshop-fcj/images/5-Workshop/5.2-Prerequisite/create-access-key.png)
 
 8. Giữ Access key và Secret key an toàn và không chia sẻ cho người khác.
 
-![alt text](/images/5-Workshop/5.2-Prerequisite/download-access-key.png)
+![alt text](/workshop-fcj/images/5-Workshop/5.2-Prerequisite/download-access-key.png)
 
-**AWS CLI:** 
+**AWS CLI:**
 
 - <a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html" target="_blank" rel="noopener noreferrer">Hướng dẫn cài đặt</a>
 
 - Kiểm tra phiên bản
+
 ```powershell
 aws --version
 ```
 
-
-![alt text](/images/5-Workshop/5.2-Prerequisite/aws-version.png)
+![alt text](/workshop-fcj/images/5-Workshop/5.2-Prerequisite/aws-version.png)
 
 ---
 
@@ -58,15 +60,14 @@ aws --version
 - <a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html" target="_blank" rel="noopener noreferrer">Hướng dẫn cài đặt</a>
 
 - Kiểm tra phiên bản
+
 ```powershell
 sam --version
 ```
 
-![alt text](/images/5-Workshop/5.2-Prerequisite/sam-version.png)
----
+## ![alt text](images/5-Workshop/5.2-Prerequisite/sam-version.png)
 
 #### Cấu Hình AWS CLI
-
 
 **Cấu hình credentials**
 
@@ -76,10 +77,9 @@ aws configure
 
 Điền Access key và Secret key:
 
-![alt text](/images/5-Workshop/5.2-Prerequisite/aws-configure.png)
+![alt text](images/5-Workshop/5.2-Prerequisite/aws-configure.png)
 
 > **Lưu ý:** Không để lộ Access Key/Secret Key
-
 
 #### Clone Workshop Repo
 

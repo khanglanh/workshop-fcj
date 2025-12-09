@@ -1,15 +1,14 @@
 ---
-title : "SAM Deploy"
-date : "2025-09-15"
-weight : 2
-chapter : false
-pre : " <b> 5.4.2 </b> "
+title: "SAM Deploy"
+date: "2025-09-15"
+weight: 2
+chapter: false
+pre: " <b> 5.4.2 </b> "
 ---
 
 #### Deploy with AWS SAM
 
 SAM CLI will package the code and deploy the entire infrastructure to AWS through CloudFormation.
-
 
 #### Deploy
 
@@ -21,7 +20,7 @@ There are 2 ways to deploy the application using SAM:
 aws s3 mb s3://demo-workshop-be-<YOUR-ID-ACCOUNT> --region ap-southeast-1
 ```
 
-![Create S3 bucket](/images/5-Workshop/5.4-deploy-backend/5.4.2-sam-deploy/mb-bucket.png)
+![Create S3 bucket](/workshop-fcj/images/5-Workshop/5.4-deploy-backend/5.4.2-sam-deploy/mb-bucket.png)
 
 ```powershell
 sam deploy --s3-bucket <bucket-name-just-created> --stack-name <stack-name> --region ap-southeast-1
@@ -37,7 +36,7 @@ To keep it simple and avoid creating a bucket manually, we will use **Method 2**
 
 #### SAM will ask some guided questions
 
-![alt text](/images/5-Workshop/5.4-deploy-backend/5.4.2-sam-deploy/guided-question.png)
+![alt text](/workshop-fcj/images/5-Workshop/5.4-deploy-backend/5.4.2-sam-deploy/guided-question.png)
 
 When running `sam deploy --guided`, SAM will ask for some parameters to configure (for example):
 
@@ -55,6 +54,7 @@ If you choose **y**, SAM will continue asking for the configuration file name (d
 - **SAM configuration environment [default]**: default
 
 In this example I chose **n** to not save the configuration.
+
 #### Deployment Process
 
 **Preparing CloudFormation**
@@ -76,7 +76,6 @@ Enter: **y** to deploy
 
 ![alt text](/images/5-Workshop/5.4-deploy-backend/5.4.2-sam-deploy/resource-create.png)
 
-
 **CloudFormation Execution Success**
 
 ![alt text](/images/5-Workshop/5.4-deploy-backend/5.4.2-sam-deploy/success-deploy.png)
@@ -91,12 +90,13 @@ Then the next deployment only needs:
 sam build
 sam deploy
 ```
-SAM will read the config from **samconfig.toml**.
 
+SAM will read the config from **samconfig.toml**.
 
 #### Verify Created Resources
 
 1. Check CloudFormation Stack
+
 - Open CloudFormation Console
 - Find stack **excel-import-workshop**
 - Stack status should be: **CREATE_COMPLETE**
@@ -104,12 +104,14 @@ SAM will read the config from **samconfig.toml**.
 ![alt text](/images/5-Workshop/5.4-deploy-backend/5.4.2-sam-deploy/check-stack-status.png)
 
 2. Check Lambda
+
 - Open Lambda Console
 - Select **Functions**
 
 ![alt text](/images/5-Workshop/5.4-deploy-backend/5.4.2-sam-deploy/check-function.png)
 
 3. Check API Gateway
+
 - Open API Gateway Console
 - Select **api**
 
@@ -117,12 +119,14 @@ SAM will read the config from **samconfig.toml**.
 ![alt text](/images/5-Workshop/5.4-deploy-backend/5.4.2-sam-deploy/api-gateway-resource.png)
 
 4. Check S3 Bucket
+
 - Open S3 Console
 - Select Bucket **workshop-excel-imports**
 
 ![alt text](/images/5-Workshop/5.4-deploy-backend/5.4.2-sam-deploy/s3-bucket.png)
 
 5. Check User pool
+
 - Open Cognito Console
 - Select **ExcelWorkshopUsers**
 

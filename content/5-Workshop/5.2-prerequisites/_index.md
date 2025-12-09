@@ -1,9 +1,9 @@
 ---
-title : "Preparation Steps"
-date :  "2025-09-15" 
-weight : 2
-chapter : false
-pre : " <b> 5.2. </b> "
+title: "Preparation Steps"
+date: "2025-09-15"
+weight: 2
+chapter: false
+pre: " <b> 5.2. </b> "
 ---
 
 #### Environment Requirements
@@ -11,6 +11,7 @@ pre : " <b> 5.2. </b> "
 To complete this workshop, we need to prepare the following.
 
 **AWS Account:**
+
 - An AWS account (Free Tier is acceptable)
 - An IAM user with permissions for the following services:
   - AWS CloudFormation
@@ -22,12 +23,13 @@ To complete this workshop, we need to prepare the following.
   - CloudWatch Logs
 
 **Create AWS Access Key (Assuming you already have an IAM User)**
+
 1. Sign in to AWS
-2. Find and select the *IAM* service
-3. Select *Users* in the left menu to view the list of IAM Users
+2. Find and select the _IAM_ service
+3. Select _Users_ in the left menu to view the list of IAM Users
 4. Find and select the user you previously created
-5. Go to the *Security Credentials* section
-6. Choose *Create Access Key* to generate a new access key
+5. Go to the _Security Credentials_ section
+6. Choose _Create Access Key_ to generate a new access key
 
 ![alt text](/images/5-Workshop/5.2-prerequisites/create-credential.png)
 
@@ -39,17 +41,17 @@ To complete this workshop, we need to prepare the following.
 
 ![alt text](/images/5-Workshop/5.2-prerequisites/download-access-key.png)
 
-**AWS CLI:** 
+**AWS CLI:**
 
 - <a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html" target="_blank" rel="noopener noreferrer">Installation guide</a>
 
 - Check version
+
 ```powershell
 aws --version
 ```
 
-
-![alt text](/images/5-Workshop/5.2-prerequisites/aws-version.png)
+![alt text](/workshop-fcj/images/5-Workshop/5.2-prerequisites/aws-version.png)
 
 ---
 
@@ -58,15 +60,14 @@ aws --version
 - <a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html" target="_blank" rel="noopener noreferrer">Installation guide</a>
 
 - Check version
+
 ```powershell
 sam --version
 ```
 
-![alt text](/images/5-Workshop/5.2-prerequisites/sam-version.png)
----
+## ![alt text](/workshop-fcj/images/5-Workshop/5.2-prerequisites/sam-version.png)
 
 #### AWS CLI Configuration
-
 
 **Configure credentials**
 
@@ -76,10 +77,9 @@ aws configure
 
 Enter the Access Key and Secret Key:
 
-![alt text](/images/5-Workshop/5.2-prerequisites/aws-configure.png)
+![alt text](/workshop-fcj/images/5-Workshop/5.2-prerequisites/aws-configure.png)
 
 > **Note:** Do not expose your Access Key/Secret Key
-
 
 #### Clone Workshop Repo
 

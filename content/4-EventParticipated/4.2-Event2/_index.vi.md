@@ -111,6 +111,6 @@ Tham gia buổi workshop **AI/ML/GenAI on AWS** giúp tôi hiểu sâu hơn về
 
 ### Một số hình ảnh khi tham gia sự kiện
 
-![alt text](/images/ngay15/anh1.png)
-![alt text](/images/ngay15/anh2.png)
-![alt text](/images/ngay15/anh3.png)
+![alt text](/workshop-fcj/images/ngay15/anh1.png)
+![alt text](/workshop-fcj/images/ngay15/anh2.png)
+![alt text](/workshop-fcj/images/ngay15/anh3.png)
