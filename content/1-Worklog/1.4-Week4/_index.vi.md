@@ -1,59 +1,30 @@
 ---
 title: "Worklog Tuần 4"
 date: "2025-10-05"
-weight: 1
+weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 ### Mục tiêu tuần 4:
 
-- Kết nối, làm quen với các thành viên trong First Cloud Journey.
-- Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+- Nắm vững kiến thức nền tảng + nâng cao về Networking trên AWS
+- Thực hành triển khai các dịch vụ Compute & Container
+- Nâng cao kỹ năng xây dựng ứng dụng Serverless
 
 ### Các công việc cần triển khai trong tuần này:
 
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP <br>                    | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                      |
+| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------- |
+| 2   | - **Triển khai Lightsail Database:** <br> &emsp; + Triển khai máy chủ Wordpress Instance <br> &emsp; + Tạo và cấu hình inst­ances <br> &emsp; + Triển khai ba ứng dụng mã nguồn mở trên Lightsail: WordPress, PrestaShop, Akaunting <br> &emsp; + Cấu hình mạng / networking: gán static IP cho VM <br> &emsp; + Cấu hình bảo mật ứng dụng <br> &emsp; + Tạo snapshot,backup cho database và instance <br>&emsp; + Dịch chuyển sang instance lớn hơn: tạo snapshot thủ công của instance hiện tại <br>&emsp; + Tạo cảnh báo theo dõi hệ thống                                                                     | 29/09/2025   | 29/09/2025      | <https://000045.awsstudygroup.com/> |
+| 3   | - **Triển khai dịch vụ Container AWS Lightsail** <br>&emsp; + Khởi tạo một Lightsail Container Service trên AWS <br>&emsp; + Đưa container image lên Lightsail <br>&emsp; + Tạo Lightsail instance <br>&emsp; + Cài đặt Docker cho Lightsail Instance <br>&emsp; + Build và Push container image lên Lightsail store <br>&emsp; + Triển khai container                                                                                                                                                                                                                                                            | 30/09/2025   | 30/09/2025      | <https://000046.awsstudygroup.com/> |
+| 4   | - **Thực hành DynamoDB trên AWS Management Console** <br>&emsp; + Tạo bảng, ghi dữ liệu, đọc dữ liệu, cập nhật, truy vấn <br>&emsp; + Tạo Global secondary index <br>&emsp; + Sử dụng AWS CloudShell <br>&emsp; + Tạo bảng, ghi, đọc, cập nhật, truy vấn dữ liệu <br>&emsp; + Tạo Global secondary index <br>&emsp; + Sử dụng AWS SDK (CRUD) <br>&emsp; + Cấu hình AWS CLI                                                                                                                                                                                                                                        | 01/10/2025   | 01/10/2025      | <https://000060.awsstudygroup.com/> |
+| 5   | - **Thực hành Amazon ElastiCache:** <br>&emsp; + Tạo VPC, subnet group và security group cho ElastiCache <br>&emsp; Tạo ElastiCache Cluster (Redis hoặc Memcached) <br>&emsp; + Cấu hình node type, number of nodes, parameter settings <br>&emsp; + Kết nối EC2 → ElastiCache qua private endpoint <br> - Viết code/CLI: Set key/value,Get key/value,Xóa key <br>&emsp; + Tạo replication group, test failover (đối với Redis) <br>&emsp; + Kiểm tra performance khi caching bật/tắt                                                                                                                             | 02/10/2025   | 02/10/2025      | <https://000061.awsstudygroup.com/> |
+| 6   | - **Thực hành dịch vụ Networking trên AWS:** <br>&emsp; + Tạo VPC, route table, subnet, Internet Gateway <br>&emsp; + Tạo Security Group & Network ACL <br>&emsp; + Tạo EC2 trong public,private subnet, kết nối SSH <br>&emsp; + Cấu hình Application Load Balancer: Target group, Listener, Health check <br>&emsp; + Triển khai Auto Scaling Group gắn với ALB <br>&emsp; + Thiết lập scaling policies <br>&emsp; + Tạo CloudFront Distribution <br>&emsp; + Cấu hình Behavior rules, Cache TTL <br>&emsp; + Kiểm tra truy cập CDN từ domain CloudFront <br>&emsp; + Kiểm tra tăng tốc truy cập qua CloudFront | 03/10/2025   | 03/10/2025      | <https://000092.awsstudygroup.com/> |
 
 ### Kết quả đạt được tuần 4:
 
-- Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản:
-
-  - Compute
-  - Storage
-  - Networking
-  - Database
-  - ...
-
-- Đã tạo và cấu hình AWS Free Tier account thành công.
-
-- Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-- Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-
-  - Access Key
-  - Secret Key
-  - Region mặc định
-  - ...
-
-- Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  - Kiểm tra thông tin tài khoản & cấu hình
-  - Lấy danh sách region
-  - Xem dịch vụ EC2
-  - Tạo và quản lý key pair
-  - Kiểm tra thông tin dịch vụ đang chạy
-  - ...
-
-- Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-- ...
+- Biết cách triển khai database + VM + ứng dụng hoàn chỉnh trên Lightsail, từ backend đến frontend đủ để vận hành website, e-commerce, ứng dụng doanh nghiệp.
+- Hiểu về mô hình dữ liệu NoSQL của DynamoDB: khái niệm table, item, attribute; hiểu Primary Key, Secondary Index, các kiểu dữ liệu được hỗ trợ (scalar, document, set)
+- ElastiCache hoạt động như in-memory cache giúp tăng tốc ứng dụng, biết triển khai Redis/Memcached trong VPC
+- Nắm vững kiến trúc AWS Networking: VPC, route, IGW, NAT, security layers

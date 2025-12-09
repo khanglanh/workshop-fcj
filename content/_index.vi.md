@@ -13,7 +13,7 @@ chapter: false
 
 &emsp; **Số điện thoại:** 0834283177
 
-&emsp; **Email:** khangglanhh@gmail.com
+&emsp; **Email:** lanhvkse184686@fpt.edu.vn
 
 &emsp; **Trường:** Đại học FPT
 

@@ -1,30 +1,31 @@
 ---
 title: "Worklog Tuần 3"
 date: "2025-09-28"
-weight: 1
+weight: 3
 chapter: false
 pre: " <b> 1.3. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 ### Mục tiêu tuần 3:
 
-- Tìm hiểu về EC2
-- Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+- Nắm vững kiến thức EC2 và quản trị máy chủ trên AWS
+- Hiểu và sử dụng IAM Role để cấp quyền truy cập giữa các dịch vụ
+- Biết cách triển khai, quản lý cơ sở dữ liệu trên RDS
 
 ### Các công việc cần triển khai trong tuần này:
 
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Xem và tìm hiểu về EC2 <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                                      | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP <br>                    | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Thứ | Công việc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                                                                   |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | -------------------------------------------------------------------------------- |
+| 2   | - - Tìm hiểu về EC2 và thực hành tạo EC2 <br>&emsp; + Tạo VPC cho Linux,Windows Instance <br>&emsp; + Tạo SG cho Linux,Window Instance <br>&emsp; + Khởi tạo và kết nối Windows instance <br>&emsp; + Khởi tạo và kết nối Linux instance <br>&emsp; + Thực hành cấu hình cho EC2 <br>                                                                                                                                                                                                                                                                                                                                                                                                                     | 22/09/2025   | 22/09/2025      | <https://000004.awsstudygroup.com/>                                              |
+| 3   | - Thực hành triển khai cơ sở dữ liệu trên Amazon RDS: <br>&emsp; + Tạo VPC, security group <br>&emsp; + Tạo DB subnets <br>&emsp; + Tạo EC2, kết nối SSH <br>&emsp; + Tạo DB Instance <br>&emsp; + Tạo database và bảng dữ liệu bằng cách sử dụng SQL script và giám sát <br>&emsp; + Thực hiện backup, restore từ DB Snapshot                                                                                                                                                                                                                                                                                                                                                                            | 23/09/2025   | 23/09/2025      | <https://000005.awsstudygroup.com/>                                              |
+| 4   | - Cấp quyền truy cập cho các dịch vụ với IAM Role: <br>&emsp; + Tạo EC2 Instance <br>&emsp; + Tạo S3 bucketh <br> &emsp; + Tạo IAM user + Access Key, Secret Access Key cho user <br>&emsp; + Thử nghiệm việc truy cập AWS bằng credentials <br>&emsp; + Tạo IAM Role cho EC2 để truy cập S3 <br>&emsp; + Chạy lệnh python để upload file sang S3 <br> <br> - Thực hành với CloudWatch <br>&emsp; + Triển khai CloudFormation Stack <br>&emsp; + Quan sát và thu thập metrics trên EC2 <br>&emsp; + Thu thập logs từ ứng dụng <br>&emsp; + tạo Log Groups, Log Streams <br>&emsp; + Tạo Metric Filters từ logs <br>&emsp; + Thiết lập Alarm cho Error Log Metric <br>&emsp; + Tạo dashboard để dễ quản lý | 24/09/2025   | 24/09/2025      | <https://000048.awsstudygroup.com/> <br><br> <https://000008.awsstudygroup.com/> |
+| 5   | - Tạo Cloud9 instance: <br>&emsp; + Sử dụng các tính năng: command line, file text, file mã nguồn, debug <br>&emsp; + Sử dụng AWS CLI                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | 25/09/2025   | 25/09/2025      | <https://000049.awsstudygroup.com/>                                              |
+| 6   | - **Thực hành:** <br>&emsp; + Tạo một S3 Bucket <br>&emsp; + Upload các file lên bucket <br>&emsp; + Bật tính năng Static Website Hosting <br>&emsp; + Cấu hình Block Public Access <br>&emsp; + Cấu hình public object <br>&emsp; + Kiểm tra độ tải của trang <br>&emsp; + Cấu hình Cloudfront <br>&emsp; + Dùng Bucket Versioning <br>&emsp; + Di chuyển và sao chép Object                                                                                                                                                                                                                                                                                                                             | 26/09/2025   | 27/09/2025      | <https://000057.awsstudygroup.com/>                                              |
 
 ### Kết quả đạt được tuần 3:
 
 - EC2 (Elastic Compute Cloud): là một máy chủ ảo có khả năng khởi tạo nhanh, khả năng co giãn, linh hoạt
+- Biết triển khai server cho Linux/Windows như môi trường production
+- Biết cách quản lý tài nguyên và quyền truy cập hợp lý cho các ứng dụng truy cập trong AWS từ EC2
+- Có thể triển khai trên AWS Cloud9 mà không cần cài local
+- Biết cách host một website tĩnh trên S3

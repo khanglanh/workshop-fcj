@@ -1,14 +1,10 @@
 ---
 title: "Worklog Tuần 2"
 date: "2025-09-21"
-weight: 1
+weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
-
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
 ### Mục tiêu tuần 2:
 
@@ -20,7 +16,7 @@ pre: " <b> 1.2. </b> "
 
 | Thứ | Công việc                                                                                                                                                                                                                                                                                                                                                                                                                                    | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                      |
 | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------- |
-| 2   | - Triển khai VPC và EC2 Instance <br> - **Thực hành:** <br>&emsp; + Tạo Subnet <br>&emsp; + Tạo Internet Gateway <br>&emsp; + Tạo Route Table <br>&emsp; +Tạo Security Group <br>&emsp; + Kích hoạt VPC Flow Logs <br>&emsp; + Tạo EC2 Instance <br>&emsp; + Kết nối bằng MobaXterm <br>&emsp; + Tạo NAT Gateway <br>&emsp; + Tạo EC2 Instance kết nối Enpoint <br>&emsp; + Tạo CloudWatch                                                   | 15/09/2025   | 15/09/2025      | <https://000003.awsstudygroup.com/> |
+| 2   | - Triển khai VPC và EC2 Instance <br> - **Thực hành:** <br>&emsp; + Tạo Subnet, Internet Gateway <br>&emsp; + Tạo Route Table <br>&emsp; +Tạo Security Group <br>&emsp; + Kích hoạt VPC Flow Logs <br>&emsp; + Tạo EC2 Instance <br>&emsp; + Kết nối bằng MobaXterm <br>&emsp; + Tạo NAT Gateway <br>&emsp; + Monitor EC2 bằng CloudWatch <br>&emsp; + Troubleshooting kết nối bằng Reachability Analyzer                                    | 15/09/2025   | 15/09/2025      | <https://000003.awsstudygroup.com/> |
 | 4   | - Tìm hiểu và thiết lập Hybrid DNS với Route 53 <br> - **Thực hành:** <br>&emsp; + Tạo Key pair <br>&emsp; + Khởi tạo CloudFormation <br>&emsp; + Cấu hình Security Group <br>&emsp; + Kết nối RDGW bằng giao thức RPP <br>&emsp; + Tạo Route 53 Inbound, Outbound <br>&emsp; + Tạo Route 53 Resolver Rules <br>&emsp; + Kết nối vào RD Gateway Server xem kết quả <br>                                                                      | 17/09/2025   | 17/09/2025      | <https://000010.awsstudygroup.com/> |
 | 5   | - Tìm hiểu và thiết lập VPC Peering <br> - **Thực hành:** <br>&emsp; + CloudFormation <br>&emsp; + Tạo Security Group <br> &emsp; + Tạo EC2 Instance <br> &emsp; + Ping thử 2 EC2 <br> &emsp; + Cập nhật Network ACL <br> &emsp; + Tạo Peering Connection <br> &emsp; + Cấu hình Route Table <br> &emsp; + Kích hoạt Cross-Peer DNS <br> &emsp; + Ping lại thử 2 EC2                                                                         | 18/09/2025   | 18/09/2025      | <https://000019.awsstudygroup.com/> |
 | 6   | - Tìm hiểu về AWS Transit Gateway <br> - **Thực hành:** <br>&emsp; + Tạo keypair <br>&emsp; + Khởi tạo CloudFormation bằng template file <br>&emsp; + Tạo Transit Gateway <br>&emsp; + Tạo Transit Gateway Attachment cho 4 VPC với TG <br>&emsp; + Cấu hình Route Table cho Transit Gateway <br>&emsp; + Thêm Transit Gateway Routes vào VPC Route Tables <br>&emsp; + Kiểm tra kết nối Internet <br>&emsp; + Kiểm tra kết nối giữa các VPC | 19/09/2025   | 19/09/2025      | <https://000020.awsstudygroup.com/> |
@@ -49,6 +45,7 @@ pre: " <b> 1.2. </b> "
 
   - Kiểm tra kết nối, két nối bằng SSH cho EC2 Private
   - EC2 kết nối với Endpoint
+  - Xây được một hệ thống public web + private services như doanh nghiệp
 
 - Triển Khai CloudWatch cho VPC
 

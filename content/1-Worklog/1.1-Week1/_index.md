@@ -6,54 +6,54 @@ chapter: false
 pre: " <b> 1.1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 ### Week 1 Objectives:
 
-- Connect and get acquainted with members of First Cloud Journey.
-- Understand basic AWS services, how to use the console & CLI.
+- Learn about AWS rules and working procedures
+- Learn about the basic AWS services and how to use AWS
+- Learn about cost management, AWS support, IAM
 
 ### Tasks to be carried out this week:
 
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP <br>                              | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Tasks                                                                                                                                                                                                                                                     | Start Date | Completion Date | Reference Material                        |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | --------------- | ----------------------------------------- |
+| 2   | - Join the chat group and get acquainted with other members <br> - Read and review the rules and procedures for joining the AWS First Cloud Journey (FCJ) program                                                                                         | 08/09/2025 | 08/09/2025      | <https://policies.fcjuni.com/>            |
+| 3   | - Create an AWS Free Tier account <br> - Learn the basic functions of the AWS Console <br>&emsp; + Manage Alias <br>&emsp; + Set up MFA for the account <br>&emsp; + Configure Region                                                                     | 09/09/2025 | 09/09/2025      | <https://000001.awsstudygroup.com/>       |
+| 4   | - Learn about the IAM service <br>&emsp; + Control access to resources <br>&emsp; + Manage users and groups <br>&emsp; + Learn about security policies <br> - **Practice:** <br>&emsp; + Create IAM User and Group <br>&emsp; + Grant permissions for IAM | 10/09/2025 | 10/09/2025      | <https://000002.awsstudygroup.com/>       |
+| 4   | - Learn about AWS services: <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Database <br>&emsp; + Networking <br>&emsp; + Security <br>&emsp; + Cost Management <br>&emsp; + Monitoring & Management                                               | 10/09/2025 | 13/09/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 6   | - Learn about AWS Support services <br> - Learn about cost management <br>&emsp; + Create Cost Budgets <br>&emsp; + Create Usage Budgets                                                                                                                  | 12/09/2025 | 12/09/2025      | <https://000007.awsstudygroup.com/>       |
 
 ### Week 1 Achievements:
 
-- Understood what AWS is and mastered the basic service groups:
+- Understand and grasp the basic common AWS services
 
   - Compute
   - Storage
-  - Networking
   - Database
-  - ...
+  - Networking
+  - Cost Management
+  - Monitoring & Management
 
-- Successfully created and configured an AWS Free Tier account.
+- Successfully set up an AWS Free Tier account
 
-- Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+  - Become familiar with AWS Management Console and basic features
+  - Configure Region for cost saving
 
-- Installed and configured AWS CLI on the computer, including:
+- Manage IAM Users, IAM Groups, IAM Policies
 
-  - Access Key
-  - Secret Key
-  - Default Region
-  - ...
+  - IAM User: represents an individual user who can access AWS resources
+  - IAM Group: a collection of IAM Users with similar access permissions
+  - IAM Policies: define who can do what, access which resources, under what conditions
 
-- Used AWS CLI to perform basic operations such as:
+- Explore the main AWS services
 
-  - Check account & configuration information
-  - Retrieve the list of regions
-  - View EC2 service
-  - Create and manage key pairs
-  - Check information about running services
-  - ...
+  - Compute: Provides virtual servers for running applications, AI, containers,... Examples: EC2, Lambda, Fargate
+  - Storage: Stores data in various formats: file, block, object. Examples: S3, EBS, EFS
+  - Networking: Helps servers, applications, or users connect securely to networks. Examples: VPC, Route 53
+  - Database: Stores and retrieves application data. Examples: DynamoDB, RDS
+  - Security: Protects internal resources, controls access, encrypts data (IAM, WAF, KMS)
+  - Cost Management: Controls spending, optimizes costs, and forecasts resource usage (Budgets, Cost Explorer, Savings Plans)
+  - Monitoring & Management: Monitors abnormal activities, optimizes resources and costs. Examples: CloudWatch, CloudTrail
 
-- Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-- ...
+- Learn about AWS Support and cost management
+  - Cost Budget: a user-defined limit set to control spending on services within a time period
+  - Usage Budget: limits the amount of resources used instead of the spending amount

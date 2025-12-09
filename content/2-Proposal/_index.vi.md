@@ -1,127 +1,184 @@
 ---
 title: "Bản đề xuất"
-date: "2025-11-30"
+date: 2025-09-30
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+# Teaching Center Management System 
+## Giải pháp AWS Serverless cho dự án quản lý trung tâm dạy học
 
-Tại phần này, bạn cần tóm tắt các nội dung trong workshop mà bạn **dự tính** sẽ làm.
+### 1. Tóm tắt điều hành  
+Dự án tập trung triển khai nền tảng LMS (Learning Management System) phục vụ nghiệp vụ đào tạo cốt lõi, tương đương phạm vi sử dụng của hệ thống tương tự như lms-hcmuni.fpt.edu.vn. Cụ thể, phạm vi bao gồm 2 phần: quản lý học vụ và xác thực/định danh và phân quyền.
 
-# IoT Weather Platform for Lab Research
+Mục tiêu là cung cấp các khả năng LMS trọng yếu: quản lý môn học và lớp học; lịch học; tìm kiếm và ghi danh bằng mã enrollKey; dashboard theo vai trò (Admin, Teacher, Student); quản lý hồ sơ giảng viên/học viên; quản lý tài liệu môn học trên S3 (tạo thư mục, upload, tải xuống có kiểm tra ghi danh); và luồng import dữ liệu hàng loạt từ Excel để khởi tạo nhanh dữ liệu học thuật ban đầu. Phần xác thực/định danh và phân quyền bảo đảm đăng nhập/xác thực với Amazon Cognito (hỗ trợ OAuth/Google), lời mời tham gia (invite/redeem), cấp/đổi mật khẩu, làm mới token, hồ sơ người dùng, cùng cơ chế phân quyền theo vai trò để bảo vệ tài nguyên học vụ.
 
-## Giải pháp AWS Serverless hợp nhất cho giám sát thời tiết thời gian thực
+Trong tương lai, hệ thống có thể mở rộng dần sang các module khác (CRM, thanh toán, HRM…) và cân nhắc tích hợp AI/IoT khi cần, nhưng không thuộc phạm vi triển khai hiện tại.
 
-### 1. Tóm tắt điều hành
+### 2. Tuyên bố vấn đề  
+**Vấn đề hiện tại**  
 
-IoT Weather Platform được thiết kế dành cho nhóm _ITea Lab_ tại TP. Hồ Chí Minh nhằm nâng cao khả năng thu thập và phân tích dữ liệu thời tiết. Nền tảng hỗ trợ tối đa 5 trạm thời tiết, có khả năng mở rộng lên 10–15 trạm, sử dụng thiết bị biên Raspberry Pi kết hợp cảm biến ESP32 để truyền dữ liệu qua MQTT. Nền tảng tận dụng các dịch vụ AWS Serverless để cung cấp giám sát thời gian thực, phân tích dự đoán và tiết kiệm chi phí, với quyền truy cập giới hạn cho 5 thành viên phòng lab thông qua Amazon Cognito.
+Ở bối cảnh LMS, nhiều đơn vị đào tạo đang vận hành rời rạc các bước: tạo môn học/lớp học, công bố lịch, ghi danh học viên, quản lý tài liệu, và truy cập hồ sơ — thường trải qua nhiều công cụ khác nhau. Điều này dẫn đến dữ liệu phân mảnh, khó kiểm soát quyền truy cập, quy trình ghi danh thủ công (dễ sai) và trải nghiệm người dùng không nhất quán giữa giảng viên và học viên.
 
-### 2. Tuyên bố vấn đề
+Khi số lượng môn/lớp tăng, thiếu một cơ chế phân quyền thống nhất theo vai trò, xác thực tin cậy (SSO/OAuth), và các API học vụ rõ ràng để phục vụ dashboard theo vai trò. Việc thiếu kênh import dữ liệu hàng loạt cũng gây chậm trễ khi khởi tạo học kỳ mới.
 
-_Vấn đề hiện tại_  
-Các trạm thời tiết hiện tại yêu cầu thu thập dữ liệu thủ công, khó quản lý khi có nhiều trạm. Không có hệ thống tập trung cho dữ liệu hoặc phân tích thời gian thực, và các nền tảng bên thứ ba thường tốn kém và quá phức tạp.
+**Giải pháp**
 
-_Giải pháp_  
-Nền tảng sử dụng AWS IoT Core để tiếp nhận dữ liệu MQTT, AWS Lambda và API Gateway để xử lý, Amazon S3 để lưu trữ (bao gồm data lake), và AWS Glue Crawlers cùng các tác vụ ETL để trích xuất, chuyển đổi, tải dữ liệu từ S3 data lake sang một S3 bucket khác để phân tích. AWS Amplify với Next.js cung cấp giao diện web, và Amazon Cognito đảm bảo quyền truy cập an toàn. Tương tự như Thingsboard và CoreIoT, người dùng có thể đăng ký thiết bị mới và quản lý kết nối, nhưng nền tảng này hoạt động ở quy mô nhỏ hơn và phục vụ mục đích sử dụng nội bộ. Các tính năng chính bao gồm bảng điều khiển thời gian thực, phân tích xu hướng và chi phí vận hành thấp.
+Nền tảng được triển khai trên kiến trúc AWS Serverless, tập trung giải quyết hai trụ cột:
+- Phần xác thực/định danh và phân quyền: Amazon Cognito cho xác thực (email/password, Google OAuth), lời mời (invite/redeem), đặt lại/đổi mật khẩu, refresh token, hồ sơ người dùng; cấp quyền theo vai trò (ADMIN/TEACHER/STUDENT) để bảo vệ API và tài nguyên học vụ.
+- Phần học vụ: API quản lý môn học/lớp học, tìm kiếm hợp nhất, ghi danh bằng enrollKey (kích hoạt PRE_ENROLLED → ACTIVE), dashboard theo vai trò, hồ sơ giảng viên/học viên, và quản lý tài liệu môn học trên S3 (tạo thư mục, presigned upload/download có kiểm tra ghi danh). Hỗ trợ import Excel để khởi tạo dữ liệu nhanh và rollback toàn phần khi lỗi.
 
-_Lợi ích và hoàn vốn đầu tư (ROI)_  
-Giải pháp tạo nền tảng cơ bản để các thành viên phòng lab phát triển một nền tảng IoT lớn hơn, đồng thời cung cấp nguồn dữ liệu cho những người nghiên cứu AI phục vụ huấn luyện mô hình hoặc phân tích. Nền tảng giảm bớt báo cáo thủ công cho từng trạm thông qua hệ thống tập trung, đơn giản hóa quản lý và bảo trì, đồng thời cải thiện độ tin cậy dữ liệu. Chi phí hàng tháng ước tính 0,66 USD (theo AWS Pricing Calculator), tổng cộng 7,92 USD cho 12 tháng. Tất cả thiết bị IoT đã được trang bị từ hệ thống trạm thời tiết hiện tại, không phát sinh chi phí phát triển thêm. Thời gian hoàn vốn 6–12 tháng nhờ tiết kiệm đáng kể thời gian thao tác thủ công.
+Luồng truy cập: CloudFront → S3 (nội dung tĩnh) và API Gateway → Lambda → DynamoDB (dữ liệu học vụ/định danh) với CloudWatch/SNS/Secrets Manager cho giám sát và bảo mật. CI/CD được thực hiện qua GitLab Runner kết hợp AWS SAM CLI.
 
-### 3. Kiến trúc giải pháp
+**Lợi ích và hoàn vốn đầu tư (ROI)**
 
-Nền tảng áp dụng kiến trúc AWS Serverless để quản lý dữ liệu từ 5 trạm dựa trên Raspberry Pi, có thể mở rộng lên 15 trạm. Dữ liệu được tiếp nhận qua AWS IoT Core, lưu trữ trong S3 data lake và xử lý bởi AWS Glue Crawlers và ETL jobs để chuyển đổi và tải vào một S3 bucket khác cho mục đích phân tích. Lambda và API Gateway xử lý bổ sung, trong khi Amplify với Next.js cung cấp bảng điều khiển được bảo mật bởi Cognito.
+- *Tăng tốc độ phát triển và triển khai*: CI/CD tự động với GitLab Runner và CloudFormation giúp giảm thời gian phát hành tính năng mới từ vài ngày xuống còn vài giờ.
+- *Tối ưu chi phí vận hành*: Kiến trúc Serverless (Lambda, DynamoDB, API Gateway) chỉ tính phí khi có request, tiết kiệm 40–60% chi phí so với EC2 truyền thống.
+- *Bảo mật toàn diện*: Secrets Manager và Cognito kết hợp IAM giúp bảo vệ dữ liệu nhạy cảm và kiểm soát truy cập chặt chẽ.
+- *Hiệu suất truy cập cao*: CloudFront CDN giúp tăng tốc độ truy cập và giảm độ trễ 50–70%.
+- *Khả năng mở rộng linh hoạt*: Hệ thống tự động mở rộng theo lưu lượng, không cần can thiệp thủ công.
+- *Giám sát chủ động*: CloudWatch + SNS cung cấp cảnh báo real-time, giúp đội ngũ kỹ thuật xử lý sự cố kịp thời.
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+### 3. Kiến trúc giải pháp    
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+![Teaching center management](/images/2-Proposal/project1_architecture_diagram_vi.jpg)
 
-_Dịch vụ AWS sử dụng_
+#### Mô tả chi tiết
 
-- _AWS IoT Core_: Tiếp nhận dữ liệu MQTT từ 5 trạm, mở rộng lên 15.
-- _AWS Lambda_: Xử lý dữ liệu và kích hoạt Glue jobs (2 hàm).
-- _Amazon API Gateway_: Giao tiếp với ứng dụng web.
-- _Amazon S3_: Lưu trữ dữ liệu thô (data lake) và dữ liệu đã xử lý (2 bucket).
-- _AWS Glue_: Crawlers lập chỉ mục dữ liệu, ETL jobs chuyển đổi và tải dữ liệu.
-- _AWS Amplify_: Lưu trữ giao diện web Next.js.
-- _Amazon Cognito_: Quản lý quyền truy cập cho người dùng phòng lab.
+1.  **User Request Flow**
+    -   Người dùng mở trình duyệt và truy cập ứng dụng thông qua tên miền.
+    -   **Amazon CloudFront** nhận request:
+        +   Kiểm tra cache để trả nội dung tĩnh (HTML/CSS/JS) từ **S3** nếu có.
+        +   Nếu nội dung chưa có trong cache, CloudFront fetch từ S3, trả lại cho user với độ trễ thấp.
+    -   User nhận được frontend và tương tác với giao diện, phát sinh các request API.
 
-_Thiết kế thành phần_
+2.  **Authentication & API Handling**
+    -   Khi user đăng nhập:
+        +   **Amazon Cognito** xác thực thông tin đăng nhập (username/password hoặc OAuth).
+        +   Cognito tạo JWT token và trả về client.
+    -   Frontend gửi request API kèm token JWT tới **API Gateway**.
+    -   API Gateway thực hiện:
+        +   Kiểm tra JWT token với Cognito.
+        +   Nếu token hợp lệ, request được chuyển tới Lambda function tương ứng.
+        +   Nếu token không hợp lệ, API Gateway trả về lỗi 401 Unauthorized.
 
-- _Thiết bị biên_: Raspberry Pi thu thập và lọc dữ liệu cảm biến, gửi tới IoT Core.
-- _Tiếp nhận dữ liệu_: AWS IoT Core nhận tin nhắn MQTT từ thiết bị biên.
-- _Lưu trữ dữ liệu_: Dữ liệu thô lưu trong S3 data lake; dữ liệu đã xử lý lưu ở một S3 bucket khác.
-- _Xử lý dữ liệu_: AWS Glue Crawlers lập chỉ mục dữ liệu; ETL jobs chuyển đổi để phân tích.
-- _Giao diện web_: AWS Amplify lưu trữ ứng dụng Next.js cho bảng điều khiển và phân tích thời gian thực.
-- _Quản lý người dùng_: Amazon Cognito giới hạn 5 tài khoản hoạt động.
+3.  **Lambda Processing & Data Access**
+    -   **AWS Lambda** thực thi logic nghiệp vụ:
+        +   Quản lý học viên, điểm danh, đăng ký khóa học, cập nhật kết quả, lịch học…
+        +   Khi cần truy cập thông tin nhạy cảm (API key, mật khẩu DB), Lambda gọi **AWS Secrets Manager**.
+    -   Lambda đọc/ghi dữ liệu vào **Amazon DynamoDB**:
+        +   DynamoDB lưu dữ liệu theo mô hình NoSQL, tối ưu read/write, tự động mở rộng khi lưu lượng tăng.
+        +   Hỗ trợ truy vấn theo khóa chính (PK) hoặc secondary index (GSI).
+    -   Lambda ghi log về **CloudWatch Logs**, bao gồm: request, error, execution metrics.
 
-### 4. Triển khai kỹ thuật
+4.  **Security & Access Control**
+    -   **Amazon Cognito**: xác thực người dùng và quản lý phiên làm việc, hỗ trợ OAuth/Google Sign-In.
+    -   **IAM Roles & Policies**: kiểm soát quyền truy cập giữa các dịch vụ AWS (Lambda, DynamoDB, S3).
+    -   **API Gateway Authorization**: xác thực JWT token từ Cognito trước khi cho phép truy cập Lambda.
+    -   **Secrets Manager**: bảo vệ thông tin nhạy cảm (API keys, database credentials), cho phép Lambda truy cập an toàn.
 
-_Các giai đoạn triển khai_  
-Dự án gồm 2 phần — thiết lập trạm thời tiết biên và xây dựng nền tảng thời tiết — mỗi phần trải qua 4 giai đoạn:
+5.  **Monitoring & Alerts**
+    -   **CloudWatch Logs** thu thập logs từ Lambda và API Gateway.
+    -   **Metrics & Alarms**:
+        +   Tạo metrics từ logs (CPU, error rate, latency, request count).
+        +   Cấu hình CloudWatch Alarms, khi vượt ngưỡng, kích hoạt alert.
+    -   **Amazon SNS** gửi cảnh báo real-time đến team vận hành qua email hoặc endpoint HTTP/SMS.
+    -   Kết hợp CloudTrail + CloudWatch để audit hành động API và bảo mật tổng thể.
 
-1. _Nghiên cứu và vẽ kiến trúc_: Nghiên cứu Raspberry Pi với cảm biến ESP32 và thiết kế kiến trúc AWS Serverless (1 tháng trước kỳ thực tập).
-2. _Tính toán chi phí và kiểm tra tính khả thi_: Sử dụng AWS Pricing Calculator để ước tính và điều chỉnh (Tháng 1).
-3. _Điều chỉnh kiến trúc để tối ưu chi phí/giải pháp_: Tinh chỉnh (ví dụ tối ưu Lambda với Next.js) để đảm bảo hiệu quả (Tháng 2).
-4. _Phát triển, kiểm thử, triển khai_: Lập trình Raspberry Pi, AWS services với CDK/SDK và ứng dụng Next.js, sau đó kiểm thử và đưa vào vận hành (Tháng 2–3).
+6.  **CI/CD & Deployment**
+    -   **GitLab**: lưu trữ source code và quản lý version control.
+    -   **GitLab Runner**:
+        +   Tự động trigger khi có code push hoặc merge request.
+        +   Chạy CI/CD pipeline với các stage: test, build, deploy.
+        +   Cài đặt dependencies và chạy unit test.
+        +   Build artifact (ZIP package cho Lambda).
+    -   **AWS SAM CLI / CloudFormation**:
+        +   GitLab Runner sử dụng AWS SAM CLI để deploy.
+        +   Triển khai hoặc cập nhật toàn bộ hạ tầng AWS (API Gateway, Lambda, DynamoDB, S3, IAM Role).
+        +   Đảm bảo hạ tầng theo mô hình IaC, nhất quán giữa môi trường Dev/Prod.
+    -   CI/CD tự động, giảm lỗi, rút ngắn thời gian triển khai.
 
-_Yêu cầu kỹ thuật_
+7.  **Summary**
+    -   **Request Path**: User → CloudFront → API Gateway → Lambda (via Cognito Auth) → DynamoDB → Lambda → API Gateway → CloudFront → User.
+    -   **Security Path**: Cognito Authentication → API Gateway Authorization → IAM Policies → Secrets Manager.
+    -   **Monitoring**: CloudWatch Logs & Metrics → Alarms → SNS.
+    -   **CI/CD Path**: GitLab → GitLab Runner → AWS SAM CLI → CloudFormation → AWS Resources.
 
-- _Trạm thời tiết biên_: Cảm biến (nhiệt độ, độ ẩm, lượng mưa, tốc độ gió), vi điều khiển ESP32, Raspberry Pi làm thiết bị biên. Raspberry Pi chạy Raspbian, sử dụng Docker để lọc dữ liệu và gửi 1 MB/ngày/trạm qua MQTT qua Wi-Fi.
-- _Nền tảng thời tiết_: Kiến thức thực tế về AWS Amplify (lưu trữ Next.js), Lambda (giảm thiểu do Next.js xử lý), AWS Glue (ETL), S3 (2 bucket), IoT Core (gateway và rules), và Cognito (5 người dùng). Sử dụng AWS CDK/SDK để lập trình (ví dụ IoT Core rules tới S3). Next.js giúp giảm tải Lambda cho ứng dụng web fullstack.
+#### Dịch vụ AWS sử dụng
+|                   | Services                                                                           | Description                                        |
+| ------------------------- | ---------------------------------------------------------------------------------- | -------------------------------------------------- |
+| **Frontend & CDN**    | CloudFront, S3                                                           | Phân phối nội dung, lưu trữ tĩnh    |
+| **Backend & Logic**       | API Gateway, Lambda, DynamoDB, Secrets Manager, Cognito                            | Serverless logic, dữ liệu, xác thực        |
+| **Monitoring** | CloudWatch Logs, CloudWatch Alarms, CloudWatch Metrics, SNS | Giám sát, cảnh báo, thu thập metrics                   |
+| **CI/CD & IaC**           | CloudFormation, SAM                                       | Triển khai tự động và quản lý cơ sở hạ tầng (kết hợp GitLab Runner)  |
+    
+### 4. Triển khai kỹ thuật  
+*Các giai đoạn triển khai*  
+- Giai đoạn phát triển (Development)
+    + Hoàn thiện các logic nghiệp vụ và main flow cho các hàm Lambda.
+    + Viết file `template.yaml` mô tả tài nguyên: API Gateway, Lambda Functions, DynamoDB, Cognito.
+    + Sử dụng AWS SAM CLI triển khai mã và `template.yaml` lên LocalStack để kiểm thử cục bộ.
+- Giai đoạn deploy:
+    + Dùng AWS SAM CLI để triển khai mã và `template.yaml` lên môi trường AWS thật.
+    + Cấu hình GitLab CI/CD với GitLab Runner để tự động hóa quy trình build và deploy.
 
-### 5. Lộ trình & Mốc triển khai
+*Yêu cầu kỹ thuật*  
+- Có tài khoản AWS sử dụng Free Tier triển khai và sử dụng các tài nguyên bình thường.
+- File `template.yaml` phải được cấu hình chính xác để mô tả đầy đủ các dịch vụ.
+- Hệ thống cần có cơ chế rollback tự động khi xảy ra lỗi triển khai.
 
-- _Trước thực tập (Tháng 0)_: 1 tháng lên kế hoạch và đánh giá trạm cũ.
-- _Thực tập (Tháng 1–3)_:
-  - Tháng 1: Học AWS và nâng cấp phần cứng.
-  - Tháng 2: Thiết kế và điều chỉnh kiến trúc.
-  - Tháng 3: Triển khai, kiểm thử, đưa vào sử dụng.
-- _Sau triển khai_: Nghiên cứu thêm trong vòng 1 năm.
+### 5. Lộ trình & Mốc triển khai  
+- *Trước thực tập (Tuần 0)*: Học các dịch vụ AWS để chuẩn bị cho project. Khảo sát, phân tích yêu cầu và các bộ phận liên quan của các trung tâm thật (Nhân sự, Đào tạo, Tuyển sinh).
+- *Thực tập (Tuần 1-12):*
+    + Tuần 1–3: Thiết kế hệ thống, giao diện, kiến trúc tổng thể và chuẩn bị tài liệu (proposal, diagram, template SAM).
+    + Tuần 4–8: Phát triển các module cốt lõi (quản lý học viên, giảng viên, lớp học, xác thực người dùng). Kiểm thử cục bộ bằng LocalStack.
+    + Tuần 9–11: Tích hợp các module, hoàn thiện CI/CD pipeline, triển khai hệ thống lên môi trường AWS thật.
+    + Tuần 12: Kiểm thử tổng thể, đánh giá kết quả, hoàn thiện báo cáo và đề xuất hướng phát triển tiếp theo.
+- *Sau thực tập (Định hướng mở rộng – Tuần 12 về sau): Nâng cấp hệ thống, tối ưu hiệu năng, và tích hợp công nghệ AI (phân tích học tập cá nhân hóa) cùng IoT (quản lý lớp học thông minh).*
+### 6. Ước tính ngân sách  
+Có thể xem chi phí trên [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=124ba62af284b2bb59152497a349995d8342c2a5)  
+Hoặc tải tệp ước tính ngân sách [pdf](/files/project_1_estimate.pdf) | [csv](/files/project_1_estimate.csv) | [json](/files/project_1_estimate.json)  
 
-### 6. Ước tính ngân sách
+*Chi phí hạ tầng*  
 
-Có thể xem chi phí trên [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01)  
-Hoặc tải [tệp ước tính ngân sách](../attachments/budget_estimation.pdf).
+- S3 Standard: 0.32 USD/tháng (10 GB, 5.000 PUT requests, 100.000 GET requests).  
+- CloudFront: 1.33 USD/tháng (10 GB, Data transfer out to origin 0.1 GB, Number of requests (HTTPS) 100.000).
+- Amazon API Gateway: 0.38 USD/tháng (300.000 request).  
+- AWS Lambda Function - Include Free Tier: 0.00 USD/tháng (400.000 request, 512 MB lưu trữ).  
+- Amazon DynamoDB: 0.62 USD/tháng (Data storage 2 GB, 50.000 Write/, 200.000 Read)
+- Amazon Cognito Lite Tier: 0.00 USD/tháng (500 MAUs)
+- Amazon CloudWatch: 2.10 USD/tháng (3 custom metric, Log 1GB, 1 dashboard, 2 alarms)
+- AWS Secrets Manager: 0.40 USD/tháng (1 secret)
+- Amazon SNS: 0.00 USD/tháng (1M request, 1M lambda deliveries)
+- AWS CloudFormation: 0.00 USD/tháng
+- GitLab Runner: 0.00 USD/tháng (self-hosted hoặc GitLab Free Tier)
 
-_Chi phí hạ tầng_
+ *Tổng*: 5.15 USD/tháng, 61.80 USD/12 tháng
 
-- AWS Lambda: 0,00 USD/tháng (1.000 request, 512 MB lưu trữ).
-- S3 Standard: 0,15 USD/tháng (6 GB, 2.100 request, 1 GB quét).
-- Truyền dữ liệu: 0,02 USD/tháng (1 GB vào, 1 GB ra).
-- AWS Amplify: 0,35 USD/tháng (256 MB, request 500 ms).
-- Amazon API Gateway: 0,01 USD/tháng (2.000 request).
-- AWS Glue ETL Jobs: 0,02 USD/tháng (2 DPU).
-- AWS Glue Crawlers: 0,07 USD/tháng (1 crawler).
-- MQTT (IoT Core): 0,08 USD/tháng (5 thiết bị, 45.000 tin nhắn).
+### 7. Đánh giá rủi ro  
+*Ma trận rủi ro*  
+- Lỗi cấu hình AWS (IAM, Lambda, API Gateway, Cognito): Ảnh hưởng cao, xác suất trung bình
+- Quá giới hạn Free Tier AWS: Ảnh hưởng trung bình, xác suất thấp.  
+- Mất dữ liệu trên S3/DynamoDB: Ảnh hưởng cao, xác suất thấp.  
+- Lỗi tích hợp giữa các dịch vụ AWS: Ảnh hưởng trung bình, xác suất thấp.
+- Tấn công từ bên ngoài (SQL injection, XSS, unauthorized access): Ảnh hưởng cao, xác suất thấp đến trung bình
 
-_Tổng_: 0,7 USD/tháng, 8,40 USD/12 tháng
+*Chiến lược giảm thiểu*  
+- Cấu hình AWS: Kiểm tra kỹ file `template.yaml`, thử triển khai trên LocalStack trước khi deploy thật.
+- Vượt giới hạn Free Tier: Theo dõi chi phí thường xuyên, thiết lập cảnh báo chi tiêu (Billing Alert), tối ưu tài nguyên.
+- Mất dữ liệu: Bật S3 Versioning, sao lưu định kỳ dữ liệu DynamoDB.
+- Lỗi tích hợp dịch vụ: Đảm bảo các dịch vụ hoạt động cùng Region, kiểm tra IAM Role và quyền truy cập chéo giữa các service.
+- Bảo mật ứng dụng: Validate input ở Lambda layer, sử dụng Cognito để xác thực chặt chẽ, cấu hình CORS đúng cách trên API Gateway, áp dụng principle of least privilege cho IAM roles, bật CloudWatch và API Gateway logging để audit
 
-- _Phần cứng_: 265 USD một lần (Raspberry Pi 5 và cảm biến).
-
-### 7. Đánh giá rủi ro
-
-_Ma trận rủi ro_
-
-- Mất mạng: Ảnh hưởng trung bình, xác suất trung bình.
-- Hỏng cảm biến: Ảnh hưởng cao, xác suất thấp.
-- Vượt ngân sách: Ảnh hưởng trung bình, xác suất thấp.
-
-_Chiến lược giảm thiểu_
-
-- Mạng: Lưu trữ cục bộ trên Raspberry Pi với Docker.
-- Cảm biến: Kiểm tra định kỳ, dự phòng linh kiện.
-- Chi phí: Cảnh báo ngân sách AWS, tối ưu dịch vụ.
-
-_Kế hoạch dự phòng_
-
-- Quay lại thu thập thủ công nếu AWS gặp sự cố.
-- Sử dụng CloudFormation để khôi phục cấu hình liên quan đến chi phí.
+*Kế hoạch dự phòng*  
+- Khi gặp lỗi deploy: rollback bằng AWS SAM CLI hoặc khôi phục version Lambda trước đó qua CloudFormation stack.
+- Khi vượt ngân sách: tạm dừng các dịch vụ không thiết yếu, tối ưu lại kiến trúc và tài nguyên sử dụng.  
+- Khi có sự cố bảo mật: rà soát log CloudWatch, vô hiệu hóa user/token bị compromised qua Cognito, review IAM permissions, cách ly Lambda function bị ảnh hưởng
 
 ### 8. Kết quả kỳ vọng
-
-_Cải tiến kỹ thuật_: Dữ liệu và phân tích thời gian thực thay thế quy trình thủ công. Có thể mở rộng tới 10–15 trạm.  
-_Giá trị dài hạn_: Nền tảng dữ liệu 1 năm cho nghiên cứu AI, có thể tái sử dụng cho các dự án tương lai.
+- Hệ thống quản lý trung tâm dạy học được triển khai thành công trên nền tảng AWS Serverless, đảm bảo hoạt động ổn định, bảo mật, dễ mở rộng.
+- Tối ưu chi phí vận hành nhờ tận dụng AWS Free Tier và kiến trúc serverless, giảm chi phí đầu tư hạ tầng ban đầu.
+- Đảm bảo hiệu suất truy cập cao, thời gian phản hồi nhanh và khả năng mở rộng linh hoạt.
+- Đảm bảo an toàn dữ liệu với các cơ chế backup, versioning, và kiểm soát truy cập chặt chẽ.
+- Tích hợp CI/CD giúp tự động hóa triển khai, kiểm thử và rollback, đảm bảo quy trình phát triển hiệu quả và đáng tin cậy.

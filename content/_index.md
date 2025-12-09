@@ -7,19 +7,15 @@ chapter: false
 
 # Internship Report
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
-
 ### Student Information:
 
-&emsp; **Full Name:** Nguyen Van A
+&emsp; **Full Name:** Vo Khang Lanh
 
-&emsp; **Phone Number:** 0989888999
+&emsp; **Phone Number:** 0834283177
 
-&emsp; **Email:** Anguyenvan@gmail.com
+&emsp; **Email:** lanhvkse184686@fpt.edu.vn
 
-&emsp; **University:** Ho Chi Minh City University of Technology and Education
+&emsp; **University:** FPT University
 
 &emsp; **Major:** Information Technology
 
