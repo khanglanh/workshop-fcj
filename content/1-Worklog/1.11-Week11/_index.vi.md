@@ -23,4 +23,13 @@ pre: " <b> 1.11. </b> "
 ### Kết quả đạt được tuần 11:
 
 - Viết code về dự án và test lỗi
-- Xây dựng, triển khai và quản lý ứng dụng Serverless với viết mẫu IaC bằng AWS SAM/CloudFormation, API Gateway, DynamoDB, Cognito , invite/redeem, SSO Google,
+- Xây dựng, triển khai và quản lý ứng dụng Serverless với viết mẫu IaC bằng AWS SAM/CloudFormation, API Gateway, DynamoDB, Cognito , invite/redeem, SSO Google
+- Thiết lập monitoring và alerting toàn diện với CloudWatch:
+  - Tạo monitoring-alarms.yaml cho cả Identity và Academic services
+  - Cảnh báo Lambda: Lỗi > 5%, Thời gian thực thi > p99, Throttles, Số lượng thực thi đồng thời
+  - Cảnh báo API Gateway: Lỗi client 4XX, Lỗi server 5XX, Độ trễ
+  - Cảnh báo DynamoDB: Throttles đọc/ghi, Dung lượng tiêu thụ
+  - Chủ đề SNS: tcm-pipeline-notifications để gửi cảnh báo
+  - Đăng ký email để nhận thông báo real-time
+  - Bảng điều khiển CloudWatch để trực quan hóa metrics (có thể thêm sau)
+  - Chính sách lưu trữ 30 ngày để tối ưu chi phí

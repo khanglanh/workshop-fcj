@@ -24,5 +24,10 @@ pre: " <b> 1.12 </b> "
 ### Kết quả đạt được tuần 12:
 
 - Hoàn thiện dự án: kiểm thử toàn bộ hệ thống, kiểm tra xử lý logic, kiểm tra dữ liệu
+- Test CI/CD pipeline end-to-end:
+  - Push code changes và verify automatic build/test
+  - Verify artifacts được cache đúng cách
+  - Test parallel jobs cho Identity và Academic
+- Fix bugs phát hiện trong quá trình test
 - Chuẩn bị báo cáo, chuẩn bị demo dự án
 - Hoàn thiện các worklog, workshop, proposal, tài liệu, đánh giá lại bản thân qua quá trình thực tập và làm việc tại AWS
